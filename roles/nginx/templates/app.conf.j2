@@ -1,0 +1,13 @@
+server {
+    listen {{ nginx_listen_port }};
+    server_name _;
+
+    location = {{ nginx_health_path }} {
+        default_type text/plain;
+        alias /var/www/html/healthz;
+    }
+
+    location / {
+        return 404;
+    }
+}

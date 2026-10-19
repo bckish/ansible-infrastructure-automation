@@ -1,0 +1,7 @@
+---
+- name: Configure application web servers
+  hosts: web
+  become: true
+  gather_facts: true
+  roles:
+    - role: nginx
